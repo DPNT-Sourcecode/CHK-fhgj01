@@ -127,10 +127,10 @@ def checkout(skus):
                     print('starting while loop')
                     if offer_details["quantity"] > count[f"{item}"]:
                         print(count[f"{item}"])
-                        item_total = offer_details["value"]*(count[f"{item}"] // offer_details["quantity"]
-                        count[f"{item}"] = count[f"{item}"] - offer_details["quantity"]*floor_div
+                        item_total = offer_details["value"]*(count[f"{item}"] // offer_details["quantity"])
                         print(count[f"{item}"])
 
+                        overall_total += item_total
                         print(item_total)
 
                     break #breaking while loop
@@ -149,4 +149,5 @@ def checkout(skus):
     return overall_total
 
 #print(checkout("AAABBB"))
+
 
