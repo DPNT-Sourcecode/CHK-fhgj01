@@ -38,12 +38,7 @@ product_data = {
     },
 }
 
-count = {
-    "A": 0,
-    "B": 0,
-    "C": 0,
-    "D": 0
-}
+
 
 #overall_total = 0
 
@@ -51,6 +46,13 @@ count = {
 # skus = unicode string
 def checkout(skus):
     overall_total = 0
+
+    count = {
+    "A": 0,
+    "B": 0,
+    "C": 0,
+    "D": 0
+}
 
     for item in skus:
         print(item)
@@ -71,7 +73,8 @@ def checkout(skus):
             item_total = count[f"{item}"]*product_data[f"{item}"]["price"]
 
         overall_total += item_total
+        print(overall_total)
 
     return overall_total
 
-print(checkout{"AAABBB"})
+print(checkout("AAABBB"))
