@@ -15,4 +15,5 @@ def test_second_A_offer():
     assert checkout_solution.checkout("AAAAA") == 200
 
 def test_both_A_offers():
-    assert checkout_solution.checkout("AAAAAAAA") == 330
+    assert checkout_solution.checkout("AAAAAAAAAAAAA") == 530
+
