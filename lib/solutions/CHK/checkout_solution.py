@@ -255,6 +255,14 @@ product_data = {
     },
 }
 
+special_offers = {
+    "stxyz_group": {
+        "sku_included": ["S","T","X","Y","Z"],
+        "quantity": 3,
+        "value": 45
+    }
+}
+
 #overall_total = 0
 
 def do_action(offer, count_dict, item, product_data):
@@ -379,3 +387,4 @@ def checkout(skus):
     return overall_total
 
 #print(checkout("AAABBB"))
+
