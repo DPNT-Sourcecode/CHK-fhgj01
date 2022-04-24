@@ -55,13 +55,13 @@ def test_F_jumble():
     assert checkout_solution.checkout("FFABCDECBAABCABBAAAEEAAFF") == 695
 
 def test_non_offered_SKUs():
-    assert checkout_solution.checkout("CDGIJLMOSTWXYZ") == 485
+    assert checkout_solution.checkout("CDGIJLMOSTWXYZ") == 383
 
 def test_H():
     assert checkout_solution.checkout("HHHHHHHHHHHHHHHH") == 135
 
 def test_K_P_Q():
-    assert checkout_solution.checkout("KKPPPPPQQQKPQ") == 590
+    assert checkout_solution.checkout("KKPPPPPQQQKPQ") == 580
 
 def test_N_offer():
     assert checkout_solution.checkout("NNNMM") == 135
@@ -79,4 +79,5 @@ def test_V():
     assert checkout_solution.checkout("VVVVV") == 220
 
 def test_PQRUV_jumble():
-    assert checkout_solution.checkout("PPPPQRUVPQRUVPQRUVSU") == 740
+    assert checkout_solution.checkout("PPPPQRUVPQRUVPQRUVSU") == 730
+

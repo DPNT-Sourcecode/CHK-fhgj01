@@ -109,7 +109,7 @@ product_data = {
         "offers":{}
     }, 
     "K": {
-        "price": 80,
+        "price": 70,
         "has_offer": True,
         "offers": {
             "offer_1": {
@@ -191,7 +191,7 @@ product_data = {
         }
     },
     "S": {
-        "price": 30,
+        "price": 20,
         "has_offer": False,
         "offers":{}
     },
@@ -239,17 +239,17 @@ product_data = {
         "offers":{}
     },
     "X": {
-        "price": 90,
+        "price": 17,
         "has_offer": False,
         "offers":{}
     },
     "Y": {
-        "price": 10,
+        "price": 20,
         "has_offer": False,
         "offers":{}
     },
     "Z": {
-        "price": 50,
+        "price": 21,
         "has_offer": False,
         "offers":{}
     },
