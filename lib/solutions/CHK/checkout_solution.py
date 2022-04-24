@@ -27,7 +27,8 @@ product_data = {
         "offers": {
             "offer_1": {
                 "quantity": 2,
-                "value": 45
+                "value": 45,
+                "has_action": False
             }    
         }
     },
@@ -50,6 +51,7 @@ product_data = {
                 "value": 0,        #value of 0 allows for skipping of offer price reduction
                 "has_action": True,
                 "action": {
+                    "quantity": 2,
                     "action_type": "add",
                     "sku_affected": "B",
                     "number": 1
@@ -96,8 +98,8 @@ def checkout(skus):
     for item in count:
         if product_data[f"{item}"]["has_offer"]:
             for offer in product_data[f"{item}"]["offers"]:
-                #if offer["has_action"]:
-                do_action(offer, count)
+                if offer["has_action"]:
+                    do_action(offer, count)
 
     for item in count:
         if product_data[f"{item}"]["has_offer"]:
