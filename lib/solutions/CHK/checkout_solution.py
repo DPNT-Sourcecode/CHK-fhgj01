@@ -42,6 +42,12 @@ product_data = {
 
 #overall_total = 0
 
+def inspect_offer(offer, sku_quantity):
+    if offer["quantity"] >= sku_quantity:
+        return True
+    else:
+        return False
+
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
@@ -77,4 +83,4 @@ def checkout(skus):
 
     return overall_total
 
-print(checkout("AAABBB"))
+#print(checkout("AAABBB"))
