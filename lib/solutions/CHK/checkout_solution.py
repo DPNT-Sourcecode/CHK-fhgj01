@@ -1,4 +1,4 @@
-from data import product_data
+from lib.solutions.CHK.data import product_data
 
 # noinspection PyUnusedLocal
 # skus = unicode string
