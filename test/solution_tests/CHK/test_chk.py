@@ -37,3 +37,11 @@ def test_E_discount_1():
 def test_E_discount_2():
     assert checkout_solution.checkout("CCADDEEBBA") == 280
 
+def test_1_F():
+    assert checkout_solution.checkout("F") == 10
+
+def test_2_F():
+    assert checkout_solution.checkout("AAAFF") == 150
+
+def test_3_F():
+    assert checkout_solution.checkout("BBFFFEE") == 130
