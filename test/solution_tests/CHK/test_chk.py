@@ -51,3 +51,6 @@ def test_4_F():
 
 def test_F_jumble():
     assert checkout_solution.checkout("FFABCDECBAABCABBAAAEEAAFF") == 695
+
+def test_non_offered_SKUs():
+    assert checkout_solution.checkout("CDGIJLMOSTWXYZ") == 485
