@@ -110,7 +110,7 @@ def checkout(skus):
         print(item)
         if product_data[f"{item}"]["has_offer"]:
             for offer_name, offer_details in product_data[f"{item}"]["offers"].items():
-                #print(list(product_data[f"{item}"]["offers"].items()))
+                print(len(list(product_data[f"{item}"]["offers"].items())))
                 print(f'count of {item} is', count[f"{item}"])
                 print(offer_details)
                 price = product_data[f"{item}"]["price"]
@@ -141,5 +141,6 @@ def checkout(skus):
     return overall_total
 
 #print(checkout("AAABBB"))
+
 
 
