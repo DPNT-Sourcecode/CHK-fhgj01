@@ -37,4 +37,3 @@ def test_E_discount_1():
 def test_E_discount_2():
     assert checkout_solution.checkout("CCADDEEBBA") == 280
 
-
