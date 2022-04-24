@@ -75,6 +75,9 @@ def inspect_offer(offer, sku_quantity):
     else:
         return False
 
+def action_offers(product_data, count):
+    pass
+
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
@@ -119,4 +122,5 @@ def checkout(skus):
     return overall_total
 
 #print(checkout("AAABBB"))
+
 
