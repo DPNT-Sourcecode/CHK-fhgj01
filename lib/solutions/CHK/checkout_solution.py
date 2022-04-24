@@ -10,13 +10,13 @@ product_data = {
         "has_offer": True,
         "offers": {
             "offer_1": {
-                "quantity": 3,
-                "value": 130,
+                "quantity": 5,
+                "value": 200,
                 "has_action": False
             },
             "offer_2": {
-                "quantity": 5,
-                "value": 200,
+                "quantity": 3,
+                "value": 130,
                 "has_action": False
             }    
         }
