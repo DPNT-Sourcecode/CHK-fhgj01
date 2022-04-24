@@ -72,6 +72,8 @@ def do_action(offer, count_dict, item, product_data):
             items_removed = eligable_items_number
         else:
             items_removed = count_dict[f'{offer["action"]["sku_affected"]}']
+        
+        print('items removed', items_removed)
 
         offer_count = 0
         discount = 0
@@ -79,7 +81,7 @@ def do_action(offer, count_dict, item, product_data):
         if product_data[f"{offer['action']['sku_affected']}"]["has_offer"]:
             for offer_name, offer_details in product_data[f"{offer['action']['sku_affected']}"]["offers"].items():
                 offer_count += 1
-                print(f"count of {offer['action']['sku_affected']} is", items_removed)
+                print(f"in action, count of {offer['action']['sku_affected']} is", items_removed)
                 print(offer_details)
                 price = product_data[f"{offer['action']['sku_affected']}"]["price"]
                 quantity = offer_details["quantity"]
@@ -92,7 +94,7 @@ def do_action(offer, count_dict, item, product_data):
 
                 if quantity != 1:
                     items_removed -=  (items_removed//quantity)*quantity
-                print(f"count of {offer['action']['sku_affected']} is", items_removed)
+                print(f"in action, count of {offer['action']['sku_affected']} is", items_removed)
 
                 if offer_count == (len(list(product_data[f"{offer['action']['sku_affected']}"]["offers"].items()))):
                     discount += items_removed*product_data[f"{offer['action']['sku_affected']}"]["price"]
@@ -176,4 +178,5 @@ def checkout(skus):
     return overall_total
 
 #print(checkout("AAABBB"))
+
 
