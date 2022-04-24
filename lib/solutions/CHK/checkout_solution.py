@@ -6,36 +6,54 @@ from functools import total_ordering
 product_data = {
     "A": {
         "price": 50,
-        "offer": {
-            "is_offer": True,
-            "quantity": 3,
-            "value": 130
+        "has_offer": True,
+        "offers": {
+            "offer_1": {
+                "quantity": 3,
+                "value": 130
+            },
+            "offer_2": {
+                "quantity": 5,
+                "value": 200
+            }    
         }
     },
     "B": {
         "price": 30,
-        "offer": {
-            "is_offer": True,
-            "quantity": 2,
-            "value": 45
+        "has_offer": True,
+        "offers": {
+            "offer_1": {
+                "quantity": 2,
+                "value": 45
+            }    
         }
     },
     "C": {
         "price": 20,
-        "offer": {
-            "is_offer": False,
-            "quantity": 0,
-            "value": 0
-        }
+        "has_offer": False,
+        "offers":{}
     },
     "D": {
         "price": 15,
-        "offer": {
-            "is_offer": False,
-            "quantity": 0,
-            "value": 0
-        }
+        "has_offer": False,
+        "offers": {}
     },
+    "E": {
+        "price": 40,
+        "has_offer": True,
+        "offers": {
+            "offer_1": {
+                "quantity": 2,
+                "value": 0,
+                "has_action": True,
+                "action": {
+                    "action_type": "add",
+                    "sku_affected": "B",
+                    "number": 1
+                }
+            }
+        }
+    },    
 }
 
 
