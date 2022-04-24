@@ -75,7 +75,7 @@ def inspect_offer(offer, sku_quantity):
     else:
         return False
 
-def action_offers(product_data, count):
+def action_offers(product_data, item):
     pass
 
 # noinspection PyUnusedLocal
@@ -107,20 +107,35 @@ def checkout(skus):
     #                 do_action(offer_details, count)
 
     for item in count:
+        item_total = 0
         if product_data[f"{item}"]["has_offer"]:
-            print(item)
-            for offer_name, offer_details in product_data[f"{item}"]["offers"].items():
-                #print(offer_name)
-                print(offer_details)
-                price = product_data[f"{item}"]["price"]
-                quantity = offer_details["quantity"]
-                value = offer_details["value"]
+            #print(item)
+            #for offer_name, offer_details in product_data[f"{item}"]["offers"].items():
+                # #print(offer_name)
+                # print(offer_details)
+                # price = product_data[f"{item}"]["price"]
+                # quantity = offer_details["quantity"]
+                # value = offer_details["value"]
 
-                item_total = value*(count[f"{item}"]//quantity) + price*(count[f"{item}"]%quantity)
+                # item_total = value*(count[f"{item}"]//quantity) + price*(count[f"{item}"]%quantity)
+                # print(item_total)
+
+            while count[f"{item}"] < 0:
+                for offer_name, offer_details in product_data[f"{item}"]["offers"].items():
+                    if offer_details["quantity"] < count[f"{item}"]:
+                        count[f"{item}"] -= offer_details["quantity"]
+                        item_total += offer_details["value"]
+
+                        print(item_total)
+                    
+                        break #breaking for loop, back to top of while loop
+                    
+                item_total += count[f"{item}"]*product_data[f"{item}"]["price"]
+                item_total = 0
                 print(item_total)
         
-        else:
-            item_total = count[f"{item}"]*product_data[f"{item}"]["price"]
+        # else:
+        #     item_total = count[f"{item}"]*product_data[f"{item}"]["price"]
 
         overall_total += item_total
         #print(overall_total)
@@ -128,3 +143,4 @@ def checkout(skus):
     return overall_total
 
 #print(checkout("AAABBB"))
+
