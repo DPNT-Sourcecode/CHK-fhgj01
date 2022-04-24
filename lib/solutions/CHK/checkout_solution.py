@@ -81,6 +81,9 @@ def do_action(offer, count_dict, item, product_data):
         offer_count = 0
         discount = 0
 
+        if items_removed%2 !=0 and count_dict[f'{offer["action"]["sku_affected"]}']%2 == 0:
+            discount -= 15
+
         if product_data[f"{offer['action']['sku_affected']}"]["has_offer"]:
             for offer_name, offer_details in product_data[f"{offer['action']['sku_affected']}"]["offers"].items():
                 offer_count += 1
@@ -110,6 +113,7 @@ def do_action(offer, count_dict, item, product_data):
         else:
             discount += items_removed*product_data[f"{item}"]["price"]
 
+        
         print('discount', discount)
         return -1*discount
 
