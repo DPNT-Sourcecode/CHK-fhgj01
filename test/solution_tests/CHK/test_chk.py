@@ -29,5 +29,3 @@ def test_one_E_discount():
 def test_two_E_discounts():
     assert checkout_solution.checkout("EEEEBB") == 160
 
-
-
