@@ -58,7 +58,24 @@ product_data = {
                 }
             }
         }
-    },    
+    },  
+    "F": {
+        "price": 10,
+        "has_offer": True,
+        "offers": {
+            "offer_1": {
+                "quantity": 1,     #quantity of 1 doesn't break the maths by not dividing by 0
+                "value": 0,        #value of 0 allows for skipping of offer price reduction
+                "has_action": True,
+                "action": {
+                    "quantity": 3,
+                    "action_type": "free_item",     
+                    "sku_affected": "F",            
+                    "number": 1                     
+                }
+            }
+        }
+    },   
 }
 
 
@@ -130,7 +147,8 @@ def checkout(skus):
     "B": 0,
     "C": 0,
     "D": 0,
-    "E": 0
+    "E": 0,
+    "F": 0
     }
 
     saved_count = {
@@ -138,7 +156,8 @@ def checkout(skus):
     "B": 0,
     "C": 0,
     "D": 0,
-    "E": 0
+    "E": 0,
+    "F": 0
     }
 
     for item in skus:
