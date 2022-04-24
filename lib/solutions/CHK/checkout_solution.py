@@ -276,6 +276,8 @@ def do_action(offer, count_dict, item, product_data):
         if items_removed%2 !=0 and count_dict[f'{offer["action"]["sku_affected"]}']%2 == 0 and offer["action"]["sku_affected"] == "B":
             discount -= 15
 
+        if offer["action"]["sku_affected"] == "Q" and items_removed%2 !=0 and count_dict[f'{offer["action"]["sku_affected"]}']%3 == 0:
+
         if product_data[f"{offer['action']['sku_affected']}"]["has_offer"]:
             for offer_name, offer_details in product_data[f"{offer['action']['sku_affected']}"]["offers"].items():
                 offer_count += 1
@@ -376,5 +378,6 @@ def checkout(skus):
     return overall_total
 
 #print(checkout("AAABBB"))
+
 
 
