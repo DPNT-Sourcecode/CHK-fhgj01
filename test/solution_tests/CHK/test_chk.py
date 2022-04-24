@@ -45,3 +45,9 @@ def test_2_F():
 
 def test_3_F():
     assert checkout_solution.checkout("BBFFFEE") == 130
+
+def test_4_F():
+    assert checkout_solution.checkout("FFFF") == 30
+
+def test_F_jumble():
+    assert checkout_solution.checkout("FFABCDECBAABCABBAAAEEAAFF") == 695
