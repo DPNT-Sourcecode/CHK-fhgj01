@@ -5,6 +5,10 @@
 
 #The import below worked in personal testing, but lib wasn't recognised by the send_command_to_server.py file.
 #from lib.solutions.CHK.data.product_data import product_data
+from tabnanny import check
+from tokenize import group
+
+
 product_data = {
     "A": {
         "price": 50,
@@ -329,15 +333,26 @@ def check_special_offers(count, special_offers, overall_total):
         group_count[f'{sku}'] = ordered_by_value[f'{sku}']
         print(group_count)
         total = 0
+
         for item in group_count:
             total += group_count[f'{item}']
         
         overall_total = (total//quantity) * value
         removal_number = (total//quantity) * quantity
 
-        
+        for item in group_count:
+            if removal_number > group_count[f'{item}']:
+                group_count[f'{item}'] = 0
+                removal_number -= group_count[f'{item}']
+            
+            else:
+                group_count[f'{item}'] -= removal_number
+                removal_number = 0
 
-    return overall_total
+    for sku in group_count:
+        count[f'{sku}'] = group_count[f'{sku}']
+
+    return overall_total, count
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -358,7 +373,9 @@ def checkout(skus):
         count[f"{item}"] += 1
         saved_count[f"{item}"] += 1
 
-    print(count)
+    print('pre group discount ',count, ' ',overall_total)
+    overall_total, count = check_special_offers(count, special_offers, overall_total)
+    print('post group discount ',count, ' ',overall_total)
 
     # for item in count:
     #     if product_data[f"{item}"]["has_offer"]:
@@ -404,3 +421,4 @@ def checkout(skus):
     return overall_total
 
 #print(checkout("AAABBB"))
+
