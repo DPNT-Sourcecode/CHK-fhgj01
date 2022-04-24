@@ -63,8 +63,9 @@ product_data = {
 
 #overall_total = 0
 
-def do_action(offer):
-    if offer["has_action"]
+def do_action(offer, count_dict):
+    if offer["action"]["action_type"] == "add":
+        count_dict[f'{offer["action"]["sku_affected"]}'] += offer["action"]["number"]
 
 def inspect_offer(offer, sku_quantity):
     if offer["quantity"] >= sku_quantity:
@@ -81,7 +82,8 @@ def checkout(skus):
     "A": 0,
     "B": 0,
     "C": 0,
-    "D": 0
+    "D": 0,
+    "E": 0
 }
 
     for item in skus:
@@ -92,7 +94,7 @@ def checkout(skus):
         count[f"{item}"] += 1
 
     for item in count:
-        if product_data[f"{item}"]["offer"]["is_offer"]:
+        if product_data[f"{item}"]["has_offer"]:
             price = product_data[f"{item}"]["price"]
             quantity = product_data[f"{item}"]["offer"]["quantity"]
             value = product_data[f"{item}"]["offer"]["value"]
@@ -108,3 +110,4 @@ def checkout(skus):
     return overall_total
 
 #print(checkout("AAABBB"))
+
