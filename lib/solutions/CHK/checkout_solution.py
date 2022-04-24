@@ -1,7 +1,7 @@
 #from lib.solutions.CHK.data import product_data
 
-from fcntl import F_SEAL_SEAL
-from functools import total_ordering
+# from fcntl import F_SEAL_SEAL
+# from functools import total_ordering
 
 
 product_data = {
@@ -117,6 +117,7 @@ def checkout(skus):
     return overall_total
 
 #print(checkout("AAABBB"))
+
 
 
 
