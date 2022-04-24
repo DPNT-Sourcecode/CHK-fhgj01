@@ -7,7 +7,7 @@
 product_data = {
     "A": {
         "price": 50,
-        "has_offer": True,
+        "has_offer": True ,
         "offers": {
             "offer_1": {
                 "quantity": 3,
@@ -23,7 +23,7 @@ product_data = {
     },
     "B": {
         "price": 30,
-        "has_offer": True,
+        "has_offer": True ,
         "offers": {
             "offer_1": {
                 "quantity": 2,
@@ -48,7 +48,7 @@ product_data = {
             "offer_1": {
                 "quantity": 1,     #quantity of 1 doesn't break the maths by not dividing by 0
                 "value": 0,        #value of 0 allows for skipping of offer price reduction
-                "has_action": True,
+                "has_action": True ,
                 "action": {
                     "action_type": "add",
                     "sku_affected": "B",
@@ -117,6 +117,7 @@ def checkout(skus):
     return overall_total
 
 #print(checkout("AAABBB"))
+
 
 
 
