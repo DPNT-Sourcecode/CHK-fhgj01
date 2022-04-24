@@ -23,4 +23,11 @@ def test_E():
 def test_all_of_one_type():
     assert checkout_solution.checkout("ABCDE") == 155
 
+def test_one_E_discount():
+    assert checkout_solution.checkout("EEB") == 80
+
+def test_two_E_discounts():
+    assert checkout_solution.checkout("EEEEBB") == 160
+
+
 
