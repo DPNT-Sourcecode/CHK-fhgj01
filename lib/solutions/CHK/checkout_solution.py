@@ -65,11 +65,9 @@ def checkout(skus):
             value = product_data[f"{item}"]["offer"]["value"]
 
             item_total = value*(count[f"{item}"]//quantity) + price*(count[f"{item}"]%quantity)
-
-            overall_total += item_total
-            continue
         
-        item_total = count[f"{item}"]*product_data[f"{item}"]["price"]
+        else:
+            item_total = count[f"{item}"]*product_data[f"{item}"]["price"]
 
         overall_total += item_total
 
