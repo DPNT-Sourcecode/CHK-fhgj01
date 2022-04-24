@@ -167,7 +167,7 @@ product_data = {
         }
     },
     "R": {
-        "price": 40,
+        "price": 50,
         "has_offer": True,
         "offers": {
             "offer_1": {

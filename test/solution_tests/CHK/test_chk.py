@@ -76,4 +76,4 @@ def test_4_U():
     assert checkout_solution.checkout("UUUU") == 120
 
 def test_V():
-    assert checkout_solution.checkout("VVVVVV") == 270
+    assert checkout_solution.checkout("VVVVV") == 220
