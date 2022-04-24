@@ -110,6 +110,7 @@ def do_action(offer, count_dict, item, product_data):
         else:
             discount += items_removed*product_data[f"{item}"]["price"]
 
+        print('discount', discount)
         return -1*discount
 
 def action_offers(product_data, item):
@@ -189,6 +190,7 @@ def checkout(skus):
     return overall_total
 
 #print(checkout("AAABBB"))
+
 
 
 
