@@ -54,7 +54,7 @@ product_data = {
                     "quantity": 2,
                     "action_type": "add",   # one free B item won't change the value of the total
                     "sku_affected": "B",    # so this offer won't affect anything and is not needed in calculation
-                    "number": 1
+                    "number": 1             # turns out this is not the case :(
                 }
             }
         }
@@ -140,6 +140,7 @@ def checkout(skus):
     return overall_total
 
 #print(checkout("AAABBB"))
+
 
 
 
