@@ -17,3 +17,10 @@ def test_second_A_offer():
 def test_both_A_offers():
     assert checkout_solution.checkout("AAAAAAAAAAAAA") == 530
 
+def test_E():
+    assert checkout_solution.checkout("EE") == 80
+
+def test_all_of_one_type():
+    assert checkout_solution.checkout("ABCDE") == 155
+
+
