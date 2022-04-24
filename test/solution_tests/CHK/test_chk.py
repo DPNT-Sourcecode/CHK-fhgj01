@@ -83,4 +83,3 @@ def test_PQRUV_jumble():
 
 def test_group_discount():
     assert checkout_solution.checkout("SSTXYYYZ") == 127
-

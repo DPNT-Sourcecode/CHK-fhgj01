@@ -387,4 +387,3 @@ def checkout(skus):
     return overall_total
 
 #print(checkout("AAABBB"))
-
