@@ -68,23 +68,12 @@ def action_offers(product_data, item):
 def checkout(skus):
     overall_total = 0
 
-    count = {
-    "A": 0,
-    "B": 0,
-    "C": 0,
-    "D": 0,
-    "E": 0,
-    "F": 0
-    }
+    count = {}
+    saved_count = {}
 
-    saved_count = {
-    "A": 0,
-    "B": 0,
-    "C": 0,
-    "D": 0,
-    "E": 0,
-    "F": 0
-    }
+    for item in product_data:
+        count[f"{item}"] = 0
+        saved_count[f"{item}"] = 0
 
     for item in skus:
         if item not in list(product_data.keys()):
@@ -139,3 +128,4 @@ def checkout(skus):
     return overall_total
 
 #print(checkout("AAABBB"))
+
