@@ -1,12 +1,10 @@
-#from lib.solutions.CHK.data import product_data
+import operator
 
-# from fcntl import F_SEAL_SEAL
-# from functools import total_ordering
+#from lib.solutions.CHK.data import product_data
 
 #The import below worked in personal testing, but lib wasn't recognised by the send_command_to_server.py file.
 #from lib.solutions.CHK.data.product_data import product_data
-from tabnanny import check
-from tokenize import group
+
 
 
 product_data = {
@@ -325,14 +323,15 @@ def do_action(offer, count_dict, item, product_data):
 
 def check_special_offers(count, special_offers, overall_total):
     group_count = {}
-    value = (total//special_offers["stxyz_group"]["value"])
-    quantity = (total//special_offers["stxyz_group"]["quantity"])
-    ordered_by_value = sorted(list(count), key=lambda d: d['price']) 
+    ordered_by_value = sorted(list(count), key=operator.itemegtter['price']) 
 
     for sku in special_offers["stxyz_group"]["sku_included"]:
         group_count[f'{sku}'] = ordered_by_value[f'{sku}']
         print(group_count)
         total = 0
+        
+        value = (total//special_offers["stxyz_group"]["value"])
+        quantity = (total//special_offers["stxyz_group"]["quantity"])
 
         for item in group_count:
             total += group_count[f'{item}']
@@ -421,4 +420,5 @@ def checkout(skus):
     return overall_total
 
 #print(checkout("AAABBB"))
+
 
