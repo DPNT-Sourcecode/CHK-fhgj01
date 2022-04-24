@@ -3,7 +3,7 @@
 # from fcntl import F_SEAL_SEAL
 # from functools import total_ordering
 
-
+#The import below worked in personal testing, but lib wasn't recognised by the send_command_to_server.py file.
 #from lib.solutions.CHK.data.product_data import product_data
 product_data = {
     "A": {
@@ -376,4 +376,5 @@ def checkout(skus):
     return overall_total
 
 #print(checkout("AAABBB"))
+
 
