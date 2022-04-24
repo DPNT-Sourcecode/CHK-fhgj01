@@ -106,48 +106,49 @@ def checkout(skus):
     #                 do_action(offer_details, count)
 
     for item in count:
-        item_total = 0
+        #item_total = 0
         print(item)
         if product_data[f"{item}"]["has_offer"]:
-            #print(item)
-            #for offer_name, offer_details in product_data[f"{item}"]["offers"].items():
-                # #print(offer_name)
-                # print(offer_details)
-                # price = product_data[f"{item}"]["price"]
-                # quantity = offer_details["quantity"]
-                # value = offer_details["value"]
+            print(item)
+            for offer_name, offer_details in product_data[f"{item}"]["offers"].items():
+                #print(offer_name)
+                print(offer_details)
+                price = product_data[f"{item}"]["price"]
+                quantity = offer_details["quantity"]
+                value = offer_details["value"]
 
-                # item_total = value*(count[f"{item}"]//quantity) + price*(count[f"{item}"]%quantity)
+                item_total = value*(count[f"{item}"]//quantity) + price*(count[f"{item}"]%quantity)
                 # print(item_total)
 
         
-            for offer_name, offer_details in product_data[f"{item}"]["offers"].items():
-                print(offer_details)
-                while count[f"{item}"] > 0:
-                    print('starting while loop')
-                    if offer_details["quantity"] > count[f"{item}"]:
-                        print(count[f"{item}"])
-                        item_total = offer_details["value"]*(count[f"{item}"] // offer_details["quantity"])
-                        print(count[f"{item}"])
+            # for offer_name, offer_details in product_data[f"{item}"]["offers"].items():
+            #     print(offer_details)
+            #     while count[f"{item}"] > 0:
+            #         print('starting while loop')
+            #         if offer_details["quantity"] > count[f"{item}"]:
+            #             print(count[f"{item}"])
+            #             item_total = offer_details["value"]*(count[f"{item}"] // offer_details["quantity"])
+            #             print(count[f"{item}"])
 
-                        overall_total += item_total
-                        print(item_total)
+            #             overall_total += item_total
+            #             print(item_total)
 
-                    break #breaking while loop
+            #         break #breaking while loop
                     
-                item_total += count[f"{item}"]*product_data[f"{item}"]["price"]
-                print(item_total)
-                item_total = 0
+            #     item_total += count[f"{item}"]*product_data[f"{item}"]["price"]
+            #     print(item_total)
+            #     item_total = 0
                 
         
-        # else:
-        #     item_total = count[f"{item}"]*product_data[f"{item}"]["price"]
+        else:
+            item_total = count[f"{item}"]*product_data[f"{item}"]["price"]
 
         overall_total += item_total
-        #print(overall_total)
+        print(overall_total)
 
     return overall_total
 
 #print(checkout("AAABBB"))
+
 
 
