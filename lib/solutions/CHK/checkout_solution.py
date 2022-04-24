@@ -118,19 +118,20 @@ def checkout(skus):
                 value = offer_details["value"]
 
                 item_total = value*(count[f"{item}"]//quantity)
-                print('item total:', item_total)
+                # print('item total:', item_total)
 
                 overall_total += item_total #+ price*(count[f"{item}"]%quantity)
 
 
-                if item_total == 0:
-                    overall_total += count[f"{item}"]*price
-                    count[f"{item}"] = 0
+                # if count[f"{item}"] == 0:
+                #     overall_total += count[f"{item}"]*price
+                #     count[f"{item}"] = 0
 
                 count[f"{item}"] -=  (count[f"{item}"]//quantity)*quantity
                 print(f'count of {item} is', count[f"{item}"])
 
-                
+        elif count[f"{item}"] != 0:
+              
     
         else:
             overall_total += count[f"{item}"]*product_data[f"{item}"]["price"]
