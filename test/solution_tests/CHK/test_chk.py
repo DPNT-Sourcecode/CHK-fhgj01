@@ -37,6 +37,8 @@ def test_E_discount_1():
 def test_E_discount_2():
     assert checkout_solution.checkout("CCADDEEBBA") == 280
 
+#=================================================================================
+
 def test_1_F():
     assert checkout_solution.checkout("F") == 10
 
@@ -54,3 +56,18 @@ def test_F_jumble():
 
 def test_non_offered_SKUs():
     assert checkout_solution.checkout("CDGIJLMOSTWXYZ") == 485
+
+def test_H():
+    assert checkout_solution.checkout("HHHHHHHHHHHHHHHH") == 135
+
+def test_K_P_Q():
+    assert checkout_solution.checkout("KKPPPPPQQQKPQ") == 590
+
+def test_N_offer():
+    assert checkout_solution.checkout("NNNMM") == 135
+
+def test_R_offer():
+    assert checkout_solution.checkout("RRRQ") == 150
+
+def test_complex_R_offer():
+    assert checkout_solution.checkout("RRRQQQ") == 
