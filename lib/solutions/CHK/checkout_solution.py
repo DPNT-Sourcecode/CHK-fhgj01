@@ -319,8 +319,25 @@ def do_action(offer, count_dict, item, product_data):
         print('discount', discount)
         return -1*discount
 
-def action_offers(product_data, item):
-    pass
+def check_special_offers(count, special_offers, overall_total):
+    group_count = {}
+    value = (total//special_offers["stxyz_group"]["value"])
+    quantity = (total//special_offers["stxyz_group"]["quantity"])
+    ordered_by_value = sorted(list(count), key=lambda d: d['price']) 
+
+    for sku in special_offers["stxyz_group"]["sku_included"]:
+        group_count[f'{sku}'] = ordered_by_value[f'{sku}']
+        print(group_count)
+        total = 0
+        for item in group_count:
+            total += group_count[f'{item}']
+        
+        overall_total = (total//quantity) * value
+        removal_number = (total//quantity) * quantity
+
+        
+
+    return overall_total
 
 # noinspection PyUnusedLocal
 # skus = unicode string
