@@ -52,8 +52,8 @@ product_data = {
                 "has_action": True,
                 "action": {
                     "quantity": 2,
-                    "action_type": "add",
-                    "sku_affected": "B",
+                    "action_type": "add",   # one free B item won't change the value of the total
+                    "sku_affected": "B",    # so this offer won't affect anything and is not needed in calculation
                     "number": 1
                 }
             }
@@ -95,11 +95,11 @@ def checkout(skus):
 
         count[f"{item}"] += 1
 
-    for item in count:
-        if product_data[f"{item}"]["has_offer"]:
-            for offer in product_data[f"{item}"]["offers"]:
-                if offer["has_action"]:
-                    do_action(offer, count)
+    # for item in count:
+    #     if product_data[f"{item}"]["has_offer"]:
+    #         for offer in product_data[f"{item}"]["offers"]:
+    #             if offer["has_action"]:
+    #                 do_action(offer, count)
 
     for item in count:
         if product_data[f"{item}"]["has_offer"]:
@@ -119,3 +119,4 @@ def checkout(skus):
     return overall_total
 
 #print(checkout("AAABBB"))
+
