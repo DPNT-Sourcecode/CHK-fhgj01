@@ -81,3 +81,6 @@ def test_V():
 def test_PQRUV_jumble():
     assert checkout_solution.checkout("PPPPQRUVPQRUVPQRUVSU") == 730
 
+def test_group_discount():
+    assert checkout_solution.checkout("SSTXYYYZ") == 127
+
