@@ -1,5 +1,8 @@
 #from lib.solutions.CHK.data import product_data
 
+from functools import total_ordering
+
+
 product_data = {
     "A": {
         "price": 50,
@@ -35,9 +38,17 @@ product_data = {
     },
 }
 
+A_count = 0
+B_count = 0
+C_count = 0
+D_count = 0
+
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
     for item in skus:
         if item not in list(product_data.keys()):
             return -1
+
+        if item == "A":
+            A_count += 1
