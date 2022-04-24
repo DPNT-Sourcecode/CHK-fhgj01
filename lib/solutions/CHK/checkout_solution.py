@@ -46,7 +46,7 @@ def do_action(offer, count_dict, item, product_data):
                 print(f"in action, count of {offer['action']['sku_affected']} is", items_removed)
 
                 if offer_count == (len(list(product_data[f"{offer['action']['sku_affected']}"]["offers"].items()))):
-                    discount += items_removed*product_data[f"{offer['action']['sku_affected']}"]["price"]
+                    discount += items_removed*price
                     items_removed = 0
                     print(f"count of {offer['action']['sku_affected']} is", items_removed)
 
@@ -54,8 +54,7 @@ def do_action(offer, count_dict, item, product_data):
                 #     discount += do_action(offer_details, saved_count, item, product_data)
     
         else:
-            discount += items_removed*product_data[f"{item}"]["price"]
-
+            discount += items_removed*product_data[f"{offer['action']['sku_affected']}"]["price"]
         
         print('discount', discount)
         return -1*discount
