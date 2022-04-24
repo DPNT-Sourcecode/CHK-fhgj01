@@ -29,9 +29,12 @@ def test_one_E_discount():
 def test_two_E_discounts():
     assert checkout_solution.checkout("EEEEBB") == 160
 
+# these tests below favour the supermarket, hence not in accordance with the brief
+
 def test_E_discount_1():
     assert checkout_solution.checkout("ABCDEABCDE") == 280
 
 def test_E_discount_2():
     assert checkout_solution.checkout("CCADDEEBBA") == 280
+
 
