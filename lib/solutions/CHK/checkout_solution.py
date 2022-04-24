@@ -53,6 +53,7 @@ def checkout(skus):
     overall_total = 0
 
     for item in skus:
+        print(item)
         if item not in list(product_data.keys()):
             return -1
 
@@ -72,3 +73,5 @@ def checkout(skus):
         overall_total += item_total
 
     return overall_total
+
+print(checkout{"AAABBB"})
