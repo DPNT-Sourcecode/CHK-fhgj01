@@ -38,17 +38,39 @@ product_data = {
     },
 }
 
-A_count = 0
-B_count = 0
-C_count = 0
-D_count = 0
+count = {
+    "A": 0,
+    "B": 0,
+    "C": 0,
+    "D": 0
+}
+
+#overall_total = 0
 
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
+    overall_total = 0
+
     for item in skus:
         if item not in list(product_data.keys()):
             return -1
 
-        if item == "A":
-            A_count += 1
+        count[f"{item}"] += 1
+
+    for item in count:
+        if product_data[f"{item}"]["offer"]["is_offer"]:
+            price = product_data[f"{item}"]["price"]
+            quantity = product_data[f"{item}"]["offer"]["quantity"]
+            value = product_data[f"{item}"]["offer"]["value"]
+
+            item_total = value*(count[f"{item}"]//quantity) + price*(count[f"{item}"]%quantity)
+
+            overall_total += item_total
+            continue
+        
+        item_total = count[f"{item}"]*product_data[f"{item}"]["price"]
+
+        overall_total += item_total
+
+    return overall_total
