@@ -125,8 +125,11 @@ def checkout(skus):
                 for offer_name, offer_details in product_data[f"{item}"]["offers"].items():
                     print(offer_details)
                     if offer_details["quantity"] > count[f"{item}"]:
-                        count[f"{item}"] -= offer_details["quantity"]
-                        item_total += offer_details["value"]
+                        print(count[f"{item}"])
+                        floor_div = count[f"{item}"] // offer_details["quantity"]
+                        item_total += offer_details["value"]*floor_div
+                        count[f"{item}"] = count[f"{item}"] - offer_details["quantity"]*floor_div
+                        print(count[f"{item}"])
 
                         print(item_total)
                     
