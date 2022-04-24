@@ -1,5 +1,6 @@
 #from lib.solutions.CHK.data import product_data
 
+from fcntl import F_SEAL_SEAL
 from functools import total_ordering
 
 
@@ -10,11 +11,13 @@ product_data = {
         "offers": {
             "offer_1": {
                 "quantity": 3,
-                "value": 130
+                "value": 130,
+                "has_action": False
             },
             "offer_2": {
                 "quantity": 5,
-                "value": 200
+                "value": 200,
+                "has_action": False
             }    
         }
     },
@@ -59,6 +62,9 @@ product_data = {
 
 
 #overall_total = 0
+
+def do_action(offer):
+    if offer["has_action"]
 
 def inspect_offer(offer, sku_quantity):
     if offer["quantity"] >= sku_quantity:
