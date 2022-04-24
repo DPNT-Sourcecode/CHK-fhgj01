@@ -65,9 +65,9 @@ product_data = {
 
 #overall_total = 0
 
-def do_action(offer, count_dict, product_data):
+def do_action(offer, count_dict, item, product_data):
     if offer["action"]["action_type"] == "free_item":
-        pass
+        eligable_items_number = count_dict[f'{item}'] - offer["action"]["quantity"]
 
 def action_offers(product_data, item):
     pass
@@ -127,7 +127,7 @@ def checkout(skus):
                     print(f'count of {item} is', count[f"{item}"])
 
                 if offer_details["has_action"]:
-                    overall_total += do_action(offer_details, saved_count, product_data)
+                    overall_total += do_action(offer_details, saved_count, item, product_data)
     
         else:
             overall_total += count[f"{item}"]*product_data[f"{item}"]["price"]
@@ -138,3 +138,4 @@ def checkout(skus):
     return overall_total
 
 #print(checkout("AAABBB"))
+
