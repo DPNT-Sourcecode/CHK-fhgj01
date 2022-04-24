@@ -67,8 +67,11 @@ product_data = {
 
 def do_action(offer, count_dict, item, product_data):
     if offer["action"]["action_type"] == "free_item":
-        eligable_items_number = count_dict[f'{item}'] - offer["action"]["quantity"]
-        count_dict[f'{offer["action"]["sku_affected"]}']
+        eligable_items_number = count_dict[f'{item}'] / offer["action"]["quantity"]
+        if eligable_items_number < count_dict[f'{offer["action"]["sku_affected"]}']:
+            items_removed = count_dict[f'{offer["action"]["sku_affected"]}'] - eligable_items_number
+        else:
+            items_removed = count_dict[f'{offer["action"]["sku_affected"]}']
 
 def action_offers(product_data, item):
     pass
@@ -139,6 +142,7 @@ def checkout(skus):
     return overall_total
 
 #print(checkout("AAABBB"))
+
 
 
 
