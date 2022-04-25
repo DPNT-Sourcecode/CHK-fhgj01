@@ -349,10 +349,11 @@ def check_special_offers(count, special_offers, overall_total):
 
     for item in group_count:
         print('removal loop', item, group_count[f'{item}'], removal_number)
+        group_count_intermediary = group_count[f'{item}']
         group_count[f'{item}'] -= removal_number 
         if group_count[f'{item}'] < 0:
             group_count[f'{item}'] = 0
-            removal_number -= group_count[f'{item}']
+            removal_number -= group_count_intermediary
         else:
             removal_number = 0
 
@@ -437,6 +438,7 @@ def checkout(skus):
     return overall_total
 
 #print(checkout("AAABBB"))
+
 
 
 
