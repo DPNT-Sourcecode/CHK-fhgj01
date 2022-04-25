@@ -353,6 +353,8 @@ def check_special_offers(count, special_offers, overall_total):
     for sku in group_count:
         count[f'{sku}'] = group_count[f'{sku}']
 
+    print('overall_total ', overall_total, 'group_count' , group_count)
+
     return overall_total, count
 
 # noinspection PyUnusedLocal
@@ -422,6 +424,7 @@ def checkout(skus):
     return overall_total
 
 #print(checkout("AAABBB"))
+
 
 
 
