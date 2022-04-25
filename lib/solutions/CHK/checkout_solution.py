@@ -353,9 +353,9 @@ def check_special_offers(count, special_offers, overall_total):
             group_count[f'{item}'] = 0
             removal_number -= group_count[f'{item}']
         
-        else:
-            group_count[f'{item}'] -= removal_number
-            removal_number = 0
+        # else:
+        #     group_count[f'{item}'] -= removal_number
+        #     removal_number = 0
 
     for sku in group_count:
         count[f'{sku}'] = group_count[f'{sku}']
@@ -431,11 +431,3 @@ def checkout(skus):
     return overall_total
 
 #print(checkout("AAABBB"))
-
-
-
-
-
-
-
-
