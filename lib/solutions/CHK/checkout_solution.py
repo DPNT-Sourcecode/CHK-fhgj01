@@ -327,28 +327,28 @@ def check_special_offers(count, special_offers, overall_total):
 
     for sku in special_offers["stxyz_group"]["sku_included"]:
         group_count[f'{sku}'] = count[f'{sku}']
-        print(group_count)
-        total = 0
-        
-        value = (total//special_offers["stxyz_group"]["value"])
-        quantity = (total//special_offers["stxyz_group"]["quantity"])
+    print(group_count)
+    total = 0
+    
+    value = (total//special_offers["stxyz_group"]["value"])
+    quantity = (total//special_offers["stxyz_group"]["quantity"])
 
-        for item in group_count:
-            if group_count[f'{item}'] == 0:
-                del group_count[f'{item}']
-            total += group_count[f'{item}']
-        
-        overall_total = (total//quantity) * value
-        removal_number = (total//quantity) * quantity
+    for item in group_count:
+        if group_count[f'{item}'] == 0:
+            del group_count[f'{item}']
+        total += group_count[f'{item}']
+    
+    overall_total = (total//quantity) * value
+    removal_number = (total//quantity) * quantity
 
-        for item in group_count:
-            if removal_number > group_count[f'{item}']:
-                group_count[f'{item}'] = 0
-                removal_number -= group_count[f'{item}']
-            
-            else:
-                group_count[f'{item}'] -= removal_number
-                removal_number = 0
+    for item in group_count:
+        if removal_number > group_count[f'{item}']:
+            group_count[f'{item}'] = 0
+            removal_number -= group_count[f'{item}']
+        
+        else:
+            group_count[f'{item}'] -= removal_number
+            removal_number = 0
 
     for sku in group_count:
         count[f'{sku}'] = group_count[f'{sku}']
@@ -422,3 +422,4 @@ def checkout(skus):
     return overall_total
 
 #print(checkout("AAABBB"))
+
