@@ -259,7 +259,7 @@ product_data = {
 
 special_offers = {
     "stxyz_group": {
-        "sku_included": ["Z","S","T","Y","X"],
+        "sku_included": ["Z","S","T","Y","X"],    #ordered bprice value from product_data
         "quantity": 3,
         "value": 45
     }
@@ -346,14 +346,15 @@ def check_special_offers(count, special_offers, overall_total):
 
     print('overall total', overall_total, 'removal number', removal_number)
 
-    for item in group_count:
-        if removal_number > group_count[f'{item}']:
-            group_count[f'{item}'] = 0
-            removal_number -= group_count[f'{item}']
-        
-        # else:
-        #     group_count[f'{item}'] -= removal_number
-        #     removal_number = 0
+    while removal_number > 0:
+        for item in group_count:
+            if removal_number > group_count[f'{item}']:
+                group_count[f'{item}'] = 0
+                removal_number -= group_count[f'{item}']
+            
+            # else:
+            #     group_count[f'{item}'] -= removal_number
+            #     removal_number = 0
 
     for sku in group_count:
         count[f'{sku}'] = group_count[f'{sku}']
@@ -429,3 +430,4 @@ def checkout(skus):
     return overall_total
 
 #print(checkout("AAABBB"))
+
