@@ -348,9 +348,12 @@ def check_special_offers(count, special_offers, overall_total):
 
     while removal_number > 0:
         for item in group_count:
-            if removal_number > group_count[f'{item}']:
+            group_count[f'{item}'] -= removal_number 
+            if group_count[f'{item}'] < 0:
                 group_count[f'{item}'] = 0
                 removal_number -= group_count[f'{item}']
+            else:
+                removal_number -= removal_number
             
             # else:
             #     group_count[f'{item}'] -= removal_number
@@ -430,4 +433,5 @@ def checkout(skus):
     return overall_total
 
 #print(checkout("AAABBB"))
+
 
