@@ -323,7 +323,7 @@ def do_action(offer, count_dict, item, product_data):
 
 def check_special_offers(count, special_offers, overall_total):
     group_count = {}
-    ordered_by_value = sorted(list(count), key=operator.itemegtter['price']) 
+    ordered_by_value = sorted(list(count), key=operator.itemgetter('price')) 
 
     for sku in special_offers["stxyz_group"]["sku_included"]:
         group_count[f'{sku}'] = ordered_by_value[f'{sku}']
@@ -420,5 +420,3 @@ def checkout(skus):
     return overall_total
 
 #print(checkout("AAABBB"))
-
-
