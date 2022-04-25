@@ -86,4 +86,3 @@ def test_group_discount():
 
 def test_mupltiples_of_K():
     assert checkout_solution.checkout("KKKK") == 240
-
