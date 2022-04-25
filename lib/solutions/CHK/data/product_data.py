@@ -107,7 +107,7 @@ product_data = {
         "offers": {
             "offer_1": {
                 "quantity": 2,
-                "value": 150,
+                "value": 120,
                 "has_action": False
             }    
         }

@@ -83,3 +83,7 @@ def test_PQRUV_jumble():
 
 def test_group_discount():
     assert checkout_solution.checkout("SSTXYYYZ") == 127
+
+def test_mupltiples_of_K():
+    assert checkout_solution.checkout("KKKK") == 240
+
