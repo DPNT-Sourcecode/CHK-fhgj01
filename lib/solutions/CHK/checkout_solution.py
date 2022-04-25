@@ -330,14 +330,13 @@ def check_special_offers(count, special_offers, overall_total):
     print(group_count)
     total = 0
     
-    value = (total//special_offers["stxyz_group"]["value"])
-    quantity = (total//special_offers["stxyz_group"]["quantity"])
-    print('value ', value, 'quantity ', quantity)
-
     for item in group_count:
         if group_count[f'{item}'] == 0:
             del group_count[f'{item}']
         total += group_count[f'{item}']
+
+    value = (total//special_offers["stxyz_group"]["value"])
+    quantity = (total//special_offers["stxyz_group"]["quantity"])
     
     overall_total = (total//quantity) * value
     removal_number = (total//quantity) * quantity
@@ -423,6 +422,7 @@ def checkout(skus):
     return overall_total
 
 #print(checkout("AAABBB"))
+
 
 
 
