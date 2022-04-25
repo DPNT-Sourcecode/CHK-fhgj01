@@ -327,6 +327,8 @@ def check_special_offers(count, special_offers, overall_total):
 
     for sku in special_offers["stxyz_group"]["sku_included"]:
         group_count[f'{sku}'] = count[f'{sku}']
+        group_count = sorted(group_count.items())
+
     print(group_count)
     total = 0
     
@@ -422,4 +424,5 @@ def checkout(skus):
     return overall_total
 
 #print(checkout("AAABBB"))
+
 
