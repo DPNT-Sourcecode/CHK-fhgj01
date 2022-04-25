@@ -259,7 +259,7 @@ product_data = {
 
 special_offers = {
     "stxyz_group": {
-        "sku_included": ["S","T","X","Y","Z"],
+        "sku_included": ["Z","S","T","Y","X"],
         "quantity": 3,
         "value": 45
     }
@@ -331,8 +331,6 @@ def check_special_offers(count, special_offers, overall_total):
     total = 0
     
     for item in group_count:
-        if group_count[f'{item}'] == 0:
-            del group_count[f'{item}']
         total += group_count[f'{item}']
     
     print('total', total)
